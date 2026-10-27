@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 160" width="720" height="160">
+  <defs>
+    <linearGradient id="hAdobeBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#141824" />
+      <stop offset="100%" stop-color="#07090F" />
+    </linearGradient>
+
+    <linearGradient id="hAdobeBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24" />
+      <stop offset="50%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+
+    <linearGradient id="hGoldText" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FEF08A" />
+      <stop offset="100%" stop-color="#F59E0B" />
+    </linearGradient>
+  </defs>
+
+  <!-- Left Icon Container: Adobe Squircle Tile (120x120) -->
+  <g transform="translate(20, 20)">
+    <rect x="0" y="0" width="120" height="120" rx="28" fill="url(#hAdobeBg)" stroke="url(#hAdobeBorder)" stroke-width="4.5" />
+    <rect x="5" y="5" width="110" height="110" rx="23" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+    <text x="60" y="85" 
+          font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+          font-size="62" 
+          font-weight="900" 
+          fill="url(#hGoldText)" 
+          text-anchor="middle" 
+          letter-spacing="-1.5px">Cm</text>
+  </g>
+
+  <!-- Typography Lockup -->
+  <!-- Main Title: Church Media -->
+  <text x="165" y="72" 
+        font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+        font-size="34" 
+        font-weight="800" 
+        fill="#0F172A" 
+        letter-spacing="-0.5px">
+    Church Media
+  </text>
+  
+  <!-- Accent Title: Studio -->
+  <text x="400" y="72" 
+        font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+        font-size="34" 
+        font-weight="800" 
+        fill="#D97706" 
+        letter-spacing="-0.5px">
+    Studio
+  </text>
+
+  <!-- Tagline / Sub-label -->
+  <text x="167" y="104" 
+        font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+        font-size="13" 
+        font-weight="600" 
+        fill="#64748B" 
+        letter-spacing="2.5px">
+    OFFLINE PRODUCTION SUITE
+  </text>
+
+  <!-- Small Gold Divider Line & Tag -->
+  <rect x="167" y="118" width="70" height="2" rx="1" fill="#D97706" />
+  <text x="248" y="123" 
+        font-family="ui-monospace, SFMono-Regular, Menlo, monospace" 
+        font-size="10.5" 
+        font-weight="700" 
+        fill="#D97706" 
+        letter-spacing="1.2px">
+    PHOTO • QUOTES • AUDIO
+  </text>
+</svg>

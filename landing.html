@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Church Media Studio — Complete Production Suite for Church Teams</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#000000">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Church Media Studio">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <style>
+    /* ==========================================================================
+       Church Media Suite Design System
+       Inspired by modern creative cloud suites, crafted specifically for church media teams.
+       Zero Emojis • Zero Unnecessary Prose Hyphens • 100% Offline Compatible
+       ========================================================================== */
+    :root {
+      --bg-dark: #000000;
+      --bg-dark-card: #090a10;
+      --bg-dark-surface: #12141e;
+      --bg-light: #ffffff;
+      --bg-subtle: #f8fafc;
+      --bg-muted: #f1f5f9;
+      --border-dark: rgba(255, 255, 255, 0.12);
+      --border-light: #e2e8f0;
+      --text-dark: #ffffff;
+      --text-dark-muted: #94a3b8;
+      --text-light: #0f172a;
+      --text-light-muted: #475569;
+      --gold: #f59e0b;
+      --gold-deep: #d97706;
+      --cyan: #0ea5e9;
+      --cyan-deep: #0284c7;
+      --violet: #8b5cf6;
+      --emerald: #10b981;
+      --rose: #f43f5e;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      --radius-full: 9999px;
+      --radius-xl: 20px;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 12px 30px -6px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 24px 60px -12px rgba(0, 0, 0, 0.16);
+      --shadow-glow: 0 0 40px rgba(14, 165, 233, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      line-height: 1.6;
+      font-size: 15px;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Top Sticky Navigation Bar */
+    .navbar {
+      height: 64px;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-light);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand-badge-img {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: block;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+    .brand-title {
+      font-size: 16.5px;
+      font-weight: 800;
+      letter-spacing: -0.4px;
+      color: #0f172a;
+    }
+    .brand-badge-tag {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      background: #f1f5f9;
+      color: var(--text-light-muted);
+      padding: 2px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--border-light);
+    }
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 32px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-light-muted);
+    }
+    @media (min-width: 900px) {
+      .nav-links {
+        display: flex;
+      }
+    }
+    .nav-links a {
+      transition: color 0.15s ease;
+    }
+    .nav-links a:hover {
+      color: var(--gold-deep);
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Tactile Pill Buttons */
+    .btn {
+      font-family: inherit;
+      font-size: 13.5px;
+      font-weight: 700;
+      padding: 9px 20px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1.5px solid transparent;
+      user-select: none;
+      white-space: nowrap;
+    }
+    .btn-pill-primary {
+      background: #0284c7;
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.32);
+    }
+    .btn-pill-primary:hover {
+      background: #0369a1;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.42);
+    }
+    .btn-pill-hollow {
+      background: transparent;
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+    .btn-pill-hollow:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: #ffffff;
+      transform: translateY(-1px);
+    }
+    .btn-pill-dark {
+      background: #0f172a;
+      color: #ffffff;
+    }
+    .btn-pill-dark:hover {
+      background: #1e293b;
+      transform: translateY(-1px);
+    }
+    .btn-pill-outline {
+      background: #ffffff;
+      color: #0f172a;
+      border-color: #cbd5e1;
+    }
+    .btn-pill-outline:hover {
+      background: #f8fafc;
+      border-color: #94a3b8;
+    }
+    .btn-pill-gold {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 16px rgba(217, 119, 6, 0.3);
+    }
+    .btn-pill-gold:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+      box-shadow: 0 6px 22px rgba(217, 119, 6, 0.4);
+    }
+
+    /* Mobile Drawer */
+    .mobile-menu-btn {
+      display: none;
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      width: 40px;
+      height: 40px;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #0f172a;
+      box-shadow: var(--shadow-sm);
+    }
+    @media (max-width: 899px) {
+      .mobile-menu-btn {
+        display: flex;
+      }
+      .nav-actions .btn-pill-outline {
+        display: none;
+      }
+    }
+    .mobile-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    .mobile-drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .mobile-drawer-panel {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 310px;
+      max-width: 86vw;
+      height: 100%;
+      background: #ffffff;
+      box-shadow: -4px 0 24px rgba(0, 0, 0, 0.15);
+      transform: translateX(100%);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      padding: 24px 20px;
+      box-sizing: border-box;
+      z-index: 201;
+    }
+    .mobile-drawer-overlay.open .mobile-drawer-panel {
+      transform: translateX(0);
+    }
+    .drawer-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .drawer-section-title {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #64748b;
+      margin: 20px 0 10px;
+    }
+    .drawer-nav-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .drawer-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      color: #0f172a;
+      font-weight: 600;
+      font-size: 14px;
+      transition: background 0.15s ease;
+    }
+    .drawer-nav-item:hover {
+      background: var(--bg-muted);
+    }
+
+    /* ==========================================================================
+       Hero Section (Adobe Creative Cloud Style Dark Stage)
+       ========================================================================== */
+    .hero-dark-stage {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+      padding: 72px 24px 56px;
+      position: relative;
+      overflow: hidden;
+      background-image:
+        radial-gradient(circle at 50% 18%, rgba(245, 158, 11, 0.16) 0%, rgba(14, 165, 233, 0.1) 40%, transparent 72%),
+        radial-gradient(circle at 20% 60%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
+    }
+    .hero-container {
+      max-width: 1180px;
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .hero-pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius-full);
+      padding: 6px 16px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 24px;
+      backdrop-filter: blur(12px);
+    }
+    .hero-title {
+      font-size: 52px;
+      font-weight: 800;
+      letter-spacing: -1.4px;
+      line-height: 1.1;
+      max-width: 880px;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 34px;
+        letter-spacing: -0.8px;
+      }
+    }
+    .hero-subtitle {
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--text-dark-muted);
+      max-width: 680px;
+      margin-bottom: 32px;
+      font-weight: 400;
+    }
+    @media (max-width: 768px) {
+      .hero-subtitle {
+        font-size: 15px;
+      }
+    }
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+    }
+    .hero-specs-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      font-family: var(--font-mono);
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 48px;
+    }
+    .hero-spec-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero-spec-item svg {
+      color: var(--gold);
+    }
+
+    /* Peeking Artistic Gallery Cards (Image 1 Style) */
+    .hero-peek-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      width: 100%;
+      max-width: 1180px;
+      margin-top: 12px;
+    }
+    @media (max-width: 1024px) {
+      .hero-peek-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 560px) {
+      .hero-peek-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .peek-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 16 / 10;
+      background: var(--bg-dark-surface);
+      border: 1px solid var(--border-dark);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 16px;
+    }
+    .peek-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+    }
+    .peek-img-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.7;
+      transition: transform 0.5s ease, opacity 0.3s ease;
+    }
+    .peek-card:hover .peek-img-bg {
+      transform: scale(1.05);
+      opacity: 0.85;
+    }
+    .peek-gradient-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(9, 10, 16, 0.92) 80%);
+    }
+    .peek-content {
+      position: relative;
+      z-index: 2;
+    }
+    .peek-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      font-family: var(--font-mono);
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      margin-bottom: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .badge-gold { color: #fbbf24; border-color: rgba(245, 158, 11, 0.4); }
+    .badge-purple { color: #c084fc; border-color: rgba(168, 85, 247, 0.4); }
+    .badge-cyan { color: #38bdf8; border-color: rgba(14, 165, 233, 0.4); }
+    .badge-blue { color: #60a5fa; border-color: rgba(59, 130, 246, 0.4); }
+    .peek-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.25;
+    }
+    .peek-sub {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.7);
+      margin-top: 2px;
+    }
+
+    /* ==========================================================================
+       Section 2: The Ultimate Toolkit (Image 2 Style - 3 Large Feature Cards)
+       ========================================================================== */
+    .toolkit-section {
+      padding: 88px 24px 64px;
+      background: var(--bg-light);
+    }
+    .section-header-center {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 52px;
+    }
+    .section-eyebrow {
+      font-size: 12px;
+      font-family: var(--font-mono);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--cyan-deep);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-size: 38px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.18;
+      color: var(--text-light);
+      margin-bottom: 14px;
+    }
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 28px;
+      }
+    }
+    .section-desc {
+      font-size: 16px;
+      color: var(--text-light-muted);
+      line-height: 1.6;
+    }
+
+    .toolkit-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    @media (max-width: 960px) {
+      .toolkit-cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .toolkit-card {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .toolkit-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: #cbd5e1;
+    }
+    .toolkit-card-visual {
+      position: relative;
+      height: 240px;
+      background: #0d1220;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .toolkit-card-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .toolkit-card:hover .toolkit-card-visual img {
+      transform: scale(1.04);
+    }
+    .toolkit-card-visual-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.15) 0%, rgba(15, 23, 42, 0.7) 100%);
+      display: flex;
+      align-items: flex-end;
+      padding: 16px;
+    }
+    .toolkit-card-pill-tag {
+      background: rgba(255, 255, 255, 0.94);
+      color: #0f172a;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(8px);
+    }
+    .toolkit-card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+    .toolkit-card-title {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.4px;
+      color: var(--text-light);
+    }
+    .toolkit-card-text {
+      font-size: 14.5px;
+      color: var(--text-light-muted);
+      line-height: 1.55;
+    }
+
+    /* ==========================================================================
+       Section 3: High Contrast Spotlight Banner (Image 3 Style)
+       ========================================================================== */
+    .spotlight-section {
+      padding: 40px 24px 80px;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .spotlight-split-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      background: var(--bg-dark);
+      border: 1px solid var(--border-dark);
+      box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.35);
+    }
+    @media (max-width: 900px) {
+      .spotlight-split-card {
+        grid-template-columns: 1fr;
+      }
+    }
+    .spotlight-art-side {
+      position: relative;
+      min-height: 420px;
+      background: #090a10;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .spotlight-art-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+    .spotlight-art-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, transparent 30%, rgba(9, 10, 16, 0.7) 100%);
+    }
+    .spotlight-mosaic-card {
+      position: relative;
+      z-index: 2;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      max-width: 380px;
+      width: 88%;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(16px);
+      color: #ffffff;
+    }
+    .spotlight-info-side {
+      padding: 48px 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: #090a10;
+      color: #ffffff;
+      border-left: 1px solid var(--border-dark);
+    }
+    @media (max-width: 600px) {
+      .spotlight-info-side {
+        padding: 32px 24px;
+      }
+    }
+    .spotlight-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .spotlight-headline {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      color: #ffffff;
+    }
+    @media (max-width: 600px) {
+      .spotlight-headline {
+        font-size: 26px;
+      }
+    }
+    .spotlight-desc {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text-dark-muted);
+      margin-bottom: 28px;
+    }
+    .spotlight-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* ==========================================================================
+       Section 4: App Discovery Section (Image 4 Style - Filter Pills + App Grid)
+       ========================================================================== */
+    .discovery-section {
+      padding: 64px 24px 88px;
+      background: var(--bg-subtle);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .filter-pills-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .filter-pill {
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      color: var(--text-light-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .filter-pill:hover {
+      background: #f1f5f9;
+      color: var(--text-light);
+    }
+    .filter-pill.active {
+      background: #0f172a;
+      border-color: #0f172a;
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.15);
+    }
+
+    .app-discovery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    @media (max-width: 960px) {
+      .app-discovery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .app-discovery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .app-card {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .app-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: #cbd5e1;
+    }
+    .app-card-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .app-mnemonic-tile {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+      display: block;
+      flex-shrink: 0;
+    }
+    .app-card-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text-light);
+    }
+    .app-card-tag {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--text-light-muted);
+      margin-top: 1px;
+    }
+    .app-card-desc {
+      font-size: 13.5px;
+      color: var(--text-light-muted);
+      line-height: 1.5;
+      margin-top: auto;
+    }
+    .app-card-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-light);
+    }
+    .app-card-link-btn {
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+    .app-btn-primary {
+      background: #0284c7;
+      color: #ffffff;
+    }
+    .app-btn-primary:hover {
+      background: #0369a1;
+    }
+    .app-btn-subtle {
+      background: var(--bg-muted);
+      color: #0f172a;
+    }
+    .app-btn-subtle:hover {
+      background: #e2e8f0;
+    }
+
+    /* ==========================================================================
+       Section 5: Sunday Reality Timeline
+       ========================================================================== */
+    .timeline-section {
+      padding: 80px 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .timeline-track {
+      position: relative;
+      margin-top: 40px;
+    }
+    .timeline-track::before {
+      content: '';
+      position: absolute;
+      top: 12px;
+      bottom: 12px;
+      left: 20px;
+      width: 2px;
+      background: var(--border-light);
+    }
+    .timeline-step {
+      position: relative;
+      display: flex;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    .timeline-step:last-child {
+      margin-bottom: 0;
+    }
+    .timeline-dot {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 2px solid var(--cyan-deep);
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 13px;
+      color: var(--cyan-deep);
+      flex-shrink: 0;
+      z-index: 2;
+    }
+    .timeline-content {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      flex: 1;
+      box-shadow: var(--shadow-sm);
+    }
+    .timeline-time-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--gold-deep);
+      margin-bottom: 4px;
+    }
+    .timeline-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--text-light);
+      margin-bottom: 6px;
+    }
+    .timeline-desc {
+      font-size: 13.5px;
+      color: var(--text-light-muted);
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       Section 6: FAQ Accordion
+       ========================================================================== */
+    .faq-section {
+      padding: 64px 24px 80px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 36px;
+    }
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .faq-question {
+      padding: 18px 20px;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--text-light);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+    .faq-question:hover {
+      background: var(--bg-subtle);
+    }
+    .faq-answer {
+      padding: 0 20px 18px;
+      font-size: 14px;
+      color: var(--text-light-muted);
+      line-height: 1.55;
+    }
+
+    /* Footer */
+    .footer {
+      background: #090a10;
+      color: #94a3b8;
+      padding: 48px 24px;
+      border-top: 1px solid var(--border-dark);
+      text-align: center;
+      font-size: 13px;
+    }
+    .footer-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Sticky Navigation Bar -->
+  <header class="navbar">
+    <a href="landing.html" class="nav-brand">
+      <img src="assets/logo-adobe-cm.svg" alt="Church Media Studio" class="brand-badge-img">
+      <div>
+        <span class="brand-title">Church Media</span>
+        <span class="brand-badge-tag">[Cm] Suite</span>
+      </div>
+    </a>
+
+    <nav class="nav-links">
+      <a href="#discover">Apps</a>
+      <a href="#toolkit">Why Suite</a>
+      <a href="#spotlight">Spotlight</a>
+      <a href="#timeline">Sunday Reality</a>
+      <a href="#faq">Questions</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="ChurchMediaStudio.exe" download="ChurchMediaStudio.exe" class="btn btn-pill-outline" title="Native Windows Application">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span>Download .exe</span>
+      </a>
+      <a href="index.html" class="btn btn-pill-dark" title="Open Studio Web Hub">
+        <span>Open Web Studio</span>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+      <button type="button" id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Open Navigation Menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div id="mobileDrawer" class="mobile-drawer-overlay">
+    <div class="mobile-drawer-panel">
+      <div class="drawer-head">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <img src="assets/logo-adobe-cm.svg" alt="Church Media Studio" style="width:26px; height:26px; border-radius:6px;">
+          <span style="font-weight:800; font-size:14px;">Church Media Suite</span>
+        </div>
+        <button type="button" id="closeDrawerBtn" style="border:none; background:transparent; font-size:20px; cursor:pointer; color:#64748b;">&times;</button>
+      </div>
+
+      <div class="drawer-section-title">Launch Suite Apps</div>
+      <div class="drawer-nav-list">
+        <a href="index.html" class="drawer-nav-item">
+          <span style="font-family:var(--font-mono); font-weight:800; color:#38bdf8; width:22px;">[Cm]</span>
+          <span>Suite Hub (All Tools)</span>
+        </a>
+        <a href="photo.html" class="drawer-nav-item">
+          <span style="font-family:var(--font-mono); font-weight:800; color:var(--gold); width:22px;">[Ph]</span>
+          <span>Church Media Photo</span>
+        </a>
+        <a href="quotes.html" class="drawer-nav-item">
+          <span style="font-family:var(--font-mono); font-weight:800; color:#a855f7; width:22px;">[Rh]</span>
+          <span>Church Media Rhema</span>
+        </a>
+        <a href="audio.html" class="drawer-nav-item">
+          <span style="font-family:var(--font-mono); font-weight:800; color:#0284c7; width:22px;">[Au]</span>
+          <span>Church Media Audio</span>
+        </a>
+      </div>
+
+      <div class="drawer-section-title">Downloads & PWA</div>
+      <div class="drawer-nav-list">
+        <a href="ChurchMediaStudio.exe" download="ChurchMediaStudio.exe" class="drawer-nav-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>Download Windows (.exe)</span>
+        </a>
+        <a href="ChurchMediaStudio-Windows.zip" download="ChurchMediaStudio-Windows.zip" class="drawer-nav-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><polyline points="7 10 12 15 17 10"/></svg>
+          <span>Download Full Suite (.zip)</span>
+        </a>
+      </div>
+
+      <div style="margin-top:auto; font-size:11px; color:#94a3b8; font-family:var(--font-mono); text-align:center; padding-top:20px; border-top:1px solid #e2e8f0;">
+        BUILT BY PHOSTERS MINISTRIES • 100% OFFLINE
+      </div>
+    </div>
+    <div id="drawerBackdrop" style="position:absolute; inset:0;"></div>
+  </div>
+
+  <!-- SECTION 1: HERO DARK STAGE (Inspired by Adobe Creative Cloud Hero) -->
+  <section class="hero-dark-stage">
+    <div class="hero-container">
+      
+      <!-- Top Pill Badge -->
+      <div class="hero-pill-badge">
+        <img src="assets/logo-adobe-cm.svg" width="16" height="16" alt="Cm Icon">
+        <span>Church Media Suite &bull; Built by Phosters Ministries</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="hero-title">
+        The power to equip every church media team.
+      </h1>
+
+      <!-- Editorial Lead Paragraph -->
+      <p class="hero-subtitle">
+        Work faster and lighter with dedicated engines for batch photo watermarking, sermon quote typography, and Telegram audio compression. 100% offline, zero monthly fees, zero cloud barriers.
+      </p>
+
+      <!-- Pill Action Buttons -->
+      <div class="hero-cta-group">
+        <a href="index.html" class="btn btn-pill-primary">
+          <span>Open Web Studio</span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+        <a href="ChurchMediaStudio.exe" download="ChurchMediaStudio.exe" class="btn btn-pill-hollow">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>Download for Windows (.exe)</span>
+        </a>
+      </div>
+
+      <!-- Specs Row -->
+      <div class="hero-specs-row">
+        <div class="hero-spec-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+          <span>100% Client Side Offline</span>
+        </div>
+        <div class="hero-spec-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span>Zero Monthly Fees</span>
+        </div>
+        <div class="hero-spec-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <span>Zero Card Requirements</span>
+        </div>
+      </div>
+
+      <!-- Peeking Artistic Visual Cards (Image 1 Bottom Carousel Inspiration) -->
+      <div class="hero-peek-grid">
+
+        <!-- Card 1: Photo Engine [Ph] -->
+        <a href="photo.html" class="peek-card" title="Launch Church Media Photo">
+          <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=700&q=80" alt="Concert Stage Lighting Art" class="peek-img-bg" loading="lazy">
+          <div class="peek-gradient-overlay"></div>
+          <div class="peek-content">
+            <span class="peek-badge badge-gold">[Ph] Photo Engine</span>
+            <div class="peek-title">200 Photos in 30 Seconds</div>
+            <div class="peek-sub">Social 2048px & Dual Corner Logos</div>
+          </div>
+        </a>
+
+        <!-- Card 2: Rhema Engine [Rh] -->
+        <a href="quotes.html" class="peek-card" title="Launch Church Media Rhema">
+          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=700&q=80" alt="Vibrant Fluid Digital Art" class="peek-img-bg" loading="lazy">
+          <div class="peek-gradient-overlay"></div>
+          <div class="peek-content">
+            <span class="peek-badge badge-purple">[Rh] Rhema Engine</span>
+            <div class="peek-title">Sermon Quote Studio</div>
+            <div class="peek-sub">9:16 WhatsApp & 1:1 Feed Cards</div>
+          </div>
+        </a>
+
+        <!-- Card 3: Audio Engine [Au] -->
+        <a href="audio.html" class="peek-card" title="Launch Church Media Audio">
+          <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=700&q=80" alt="Glowing Soundboard Sliders" class="peek-img-bg" loading="lazy">
+          <div class="peek-gradient-overlay"></div>
+          <div class="peek-content">
+            <span class="peek-badge badge-cyan">[Au] Audio Engine</span>
+            <div class="peek-title">Telegram MP3 Packager</div>
+            <div class="peek-sub">64kbps CBR & ID3 Cover Art</div>
+          </div>
+        </a>
+
+        <!-- Card 4: Suite Hub [Cm] -->
+        <a href="index.html" class="peek-card" title="Launch Suite Hub">
+          <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=700&q=80" alt="Sanctuary Stage Atmosphere" class="peek-img-bg" loading="lazy">
+          <div class="peek-gradient-overlay"></div>
+          <div class="peek-content">
+            <span class="peek-badge badge-blue">[Cm] Suite Hub</span>
+            <div class="peek-title">Shared Brand Sync</div>
+            <div class="peek-sub">Local Storage Asset Library</div>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 2: THE ULTIMATE TOOLKIT (Inspired by Adobe Creative Cloud 3-Card Grid) -->
+  <section id="toolkit" class="toolkit-section">
+    <div class="section-header-center">
+      <div class="section-eyebrow">Modular Architecture</div>
+      <h2 class="section-title">The ultimate Sunday production toolkit.</h2>
+      <p class="section-desc">
+        Work smarter and faster with focused tools volunteers actually enjoy using. Start with a single engine or run the entire suite together.
+      </p>
+    </div>
+
+    <div class="toolkit-cards-grid">
+
+      <!-- Card 1: Apps designed to work together -->
+      <div class="toolkit-card">
+        <div class="toolkit-card-visual">
+          <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80" alt="Vibrant Fluid Abstract Artwork" loading="lazy">
+          <div class="toolkit-card-visual-overlay">
+            <span class="toolkit-card-pill-tag">Shared Church Brand Identity</span>
+          </div>
+        </div>
+        <div class="toolkit-card-body">
+          <h3 class="toolkit-card-title">Apps designed to work together.</h3>
+          <p class="toolkit-card-text">
+            Update your church name or vector emblem once in the Suite Hub. It automatically synchronizes across Church Media Photo, Rhema, and Audio via local browser storage without cloud servers.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 2: Tools crafted for Sunday deadlines -->
+      <div class="toolkit-card">
+        <div class="toolkit-card-visual">
+          <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80" alt="Professional Camera Lens Bokeh" loading="lazy">
+          <div class="toolkit-card-visual-overlay">
+            <span class="toolkit-card-pill-tag">2048px Social Optimization</span>
+          </div>
+        </div>
+        <div class="toolkit-card-body">
+          <h3 class="toolkit-card-title">Tools crafted for Sunday deadlines.</h3>
+          <p class="toolkit-card-text">
+            Camera memory cards and sound desk recordings are transformed into 2048px watermarked photo packs and 64kbps MP3s before the congregation finishes greeting in the foyer.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 3: Zero cloud dependencies, always -->
+      <div class="toolkit-card">
+        <div class="toolkit-card-visual">
+          <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=800&q=80" alt="Audio Equalizer and Soundboard" loading="lazy">
+          <div class="toolkit-card-visual-overlay">
+            <span class="toolkit-card-pill-tag">100% Offline Sanctuary Guarantee</span>
+          </div>
+        </div>
+        <div class="toolkit-card-body">
+          <h3 class="toolkit-card-title">Zero cloud dependencies, always.</h3>
+          <p class="toolkit-card-text">
+            Client side processing ensures every sermon recording and church photo stays entirely on your computer. Zero subscriptions, zero third party tracking, and zero slow WiFi outages.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 3: FEATURE SPOTLIGHT (Inspired by Adobe MAX Split Showcase Card) -->
+  <section id="spotlight" class="spotlight-section">
+    <div class="spotlight-split-card">
+      
+      <!-- Left Artistic Visual Side -->
+      <div class="spotlight-art-side">
+        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1000&q=80" alt="Sanctuary Stage Lighting" class="spotlight-art-img" loading="lazy">
+        <div class="spotlight-art-overlay"></div>
+        <div class="spotlight-mosaic-card">
+          <div style="font-size:10px; font-family:var(--font-mono); color:var(--gold); font-weight:700; margin-bottom:4px;">
+            SUNDAY SERVICE PRODUCTION SPEED
+          </div>
+          <div style="font-size:17px; font-weight:800; line-height:1.3; margin-bottom:8px;">
+            Raw Camera Photos to WhatsApp Status in 4 Minutes
+          </div>
+          <div style="font-size:12px; color:#cbd5e1; line-height:1.4;">
+            Dual corner emblem stamping, pastor cutout badges, and Telegram 64kbps CBR compression without opening three heavy software suites.
+          </div>
+        </div>
+      </div>
+
+      <!-- Right High Contrast Content Side -->
+      <div class="spotlight-info-side">
+        <div class="spotlight-badge">Church Media Suite 2026</div>
+        <h2 class="spotlight-headline">
+          Everything your media department needs before the benediction.
+        </h2>
+        <p class="spotlight-desc">
+          Commercial creative subscriptions demand high end computers, complex timelines, and monthly cloud fees. Church Media Suite is purpose built by Phosters Ministries for volunteer teams to deliver crisp, publishable media in minutes.
+        </p>
+        <div class="spotlight-actions">
+          <a href="ChurchMediaStudio.exe" download="ChurchMediaStudio.exe" class="btn btn-pill-gold">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>Download for Windows (.exe)</span>
+          </a>
+          <a href="ChurchMediaStudio-Windows.zip" download="ChurchMediaStudio-Windows.zip" class="btn btn-pill-hollow">
+            <span>Download Suite ZIP</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 4: APP DISCOVERY GRID (Inspired by Adobe Creative Cloud App Discovery) -->
+  <section id="discover" class="discovery-section">
+    <div class="section-header-center">
+      <div class="section-eyebrow">Creative Engines</div>
+      <h2 class="section-title">Discover Church Media Suite apps.</h2>
+      <p class="section-desc">
+        Explore our dedicated micro apps designed for church photographers, social managers, and audio engineers.
+      </p>
+    </div>
+
+    <!-- Segmented Filter Pills -->
+    <div class="filter-pills-bar">
+      <button type="button" class="filter-pill active" data-filter="all">All Engines</button>
+      <button type="button" class="filter-pill" data-filter="photo">Photo Production</button>
+      <button type="button" class="filter-pill" data-filter="quotes">Rhema Quotes</button>
+      <button type="button" class="filter-pill" data-filter="audio">Audio Broadcast</button>
+    </div>
+
+    <!-- App Discovery Grid -->
+    <div class="app-discovery-grid" id="appGrid">
+
+      <!-- Card 1: Photo -->
+      <div class="app-card" data-category="photo">
+        <div class="app-card-head">
+          <img src="assets/logo-ph.svg" alt="Church Media Photo" class="app-mnemonic-tile">
+          <div>
+            <div class="app-card-title">Church Media Photo</div>
+            <div class="app-card-tag">ENGINE 1 • BATCH WATERMARKER</div>
+          </div>
+        </div>
+        <div class="app-card-desc">
+          Rapid batch photo watermarking with 2048px social sizing, dual logo placement, corner flipping, and instant ZIP export.
+        </div>
+        <div class="app-card-actions">
+          <a href="photo.html" class="app-card-link-btn app-btn-primary">Launch Dedicated App</a>
+          <a href="index.html#photo" class="app-card-link-btn app-btn-subtle">Unified View</a>
+        </div>
+      </div>
+
+      <!-- Card 2: Rhema -->
+      <div class="app-card" data-category="quotes">
+        <div class="app-card-head">
+          <img src="assets/logo-rh.svg" alt="Church Media Rhema" class="app-mnemonic-tile">
+          <div>
+            <div class="app-card-title">Church Media Rhema</div>
+            <div class="app-card-tag">ENGINE 2 • SERMON QUOTE STUDIO</div>
+          </div>
+        </div>
+        <div class="app-card-desc">
+          Typography quote cards for 9:16 WhatsApp Status, 1:1 Instagram feeds, and 4:5 portraits with pastor cutouts and series backdrops.
+        </div>
+        <div class="app-card-actions">
+          <a href="quotes.html" class="app-card-link-btn app-btn-primary">Launch Dedicated App</a>
+          <a href="index.html#quotes" class="app-card-link-btn app-btn-subtle">Unified View</a>
+        </div>
+      </div>
+
+      <!-- Card 3: Audio -->
+      <div class="app-card" data-category="audio">
+        <div class="app-card-head">
+          <img src="assets/logo-au.svg" alt="Church Media Audio" class="app-mnemonic-tile">
+          <div>
+            <div class="app-card-title">Church Media Audio</div>
+            <div class="app-card-tag">ENGINE 3 • SERMON AUDIO PACKAGER</div>
+          </div>
+        </div>
+        <div class="app-card-desc">
+          Sermon audio trimmer, dynamic vocal normalizer, 64kbps CBR MP3 compressor for Telegram channels, and ID3 cover art packager.
+        </div>
+        <div class="app-card-actions">
+          <a href="audio.html" class="app-card-link-btn app-btn-primary">Launch Dedicated App</a>
+          <a href="index.html#audio" class="app-card-link-btn app-btn-subtle">Unified View</a>
+        </div>
+      </div>
+
+      <!-- Card 4: Lower Thirds -->
+      <div class="app-card" data-category="photo">
+        <div class="app-card-head">
+          <img src="assets/logo-lt.svg" alt="Church Media Lower Thirds" class="app-mnemonic-tile">
+          <div>
+            <div class="app-card-title">Church Media Lower Thirds</div>
+            <div class="app-card-tag">ENGINE 4 • ROADMAP (OPEN SOURCE)</div>
+          </div>
+        </div>
+        <div class="app-card-desc">
+          Alpha channel broadcast lower thirds and title overlays for OBS Studio, vMix, and Blackmagic ATEM live switchers.
+        </div>
+        <div class="app-card-actions">
+          <a href="README.md" class="app-card-link-btn app-btn-subtle" style="width:100%; justify-content:center;">View Roadmap on GitHub</a>
+        </div>
+      </div>
+
+      <!-- Card 5: Slides -->
+      <div class="app-card" data-category="quotes">
+        <div class="app-card-head">
+          <img src="assets/logo-sl.svg" alt="Church Media Slides" class="app-mnemonic-tile">
+          <div>
+            <div class="app-card-title">Church Media Slides</div>
+            <div class="app-card-tag">ENGINE 5 • ROADMAP (OPEN SOURCE)</div>
+          </div>
+        </div>
+        <div class="app-card-desc">
+          16:9 sanctuary projector and LED wall slide deck creator for weekly church announcements, offering details, and guest welcomes.
+        </div>
+        <div class="app-card-actions">
+          <a href="README.md" class="app-card-link-btn app-btn-subtle" style="width:100%; justify-content:center;">View Roadmap on GitHub</a>
+        </div>
+      </div>
+
+      <!-- Card 6: Rundowns -->
+      <div class="app-card" data-category="audio">
+        <div class="app-card-head">
+          <img src="assets/logo-rd.svg" alt="Church Media Rundowns" class="app-mnemonic-tile">
+          <div>
+            <div class="app-card-title">Church Media Rundowns</div>
+            <div class="app-card-tag">ENGINE 6 • ROADMAP (OPEN SOURCE)</div>
+          </div>
+        </div>
+        <div class="app-card-desc">
+          Sunday service rundown timeline and production cue sheet with synchronized local clock for sound and media desks.
+        </div>
+        <div class="app-card-actions">
+          <a href="README.md" class="app-card-link-btn app-btn-subtle" style="width:100%; justify-content:center;">View Roadmap on GitHub</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 5: SUNDAY REALITY TIMELINE -->
+  <section id="timeline" class="timeline-section">
+    <div class="section-header-center" style="margin-bottom:32px;">
+      <div class="section-eyebrow">Real World Workflow</div>
+      <h2 class="section-title">The Sunday Morning Reality</h2>
+      <p class="section-desc">
+        Why church media departments run on Church Media Suite instead of monolithic heavy software packages.
+      </p>
+    </div>
+
+    <div class="timeline-track">
+      <div class="timeline-step">
+        <div class="timeline-dot">1</div>
+        <div class="timeline-content">
+          <div class="timeline-time-badge">11:45 AM • BENEDICTION CONCLUDES</div>
+          <h3 class="timeline-title">Memory Cards Arrive at Media Desk</h3>
+          <p class="timeline-desc">
+            Photographers hand memory cards to the media desk while the congregation greets in the foyer. No waiting for cloud sync or complex imports.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-step">
+        <div class="timeline-dot">2</div>
+        <div class="timeline-content">
+          <div class="timeline-time-badge">12:05 PM • TWO HUNDRED PHOTOS PROCESSED</div>
+          <h3 class="timeline-title">Batch Watermarked Photos Online</h3>
+          <p class="timeline-desc">
+            Drop camera photos into Church Media Photo. Resized to 2048px social dimensions, stamped with the church emblem, and packaged into a ZIP archive in thirty seconds.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-step">
+        <div class="timeline-dot">3</div>
+        <div class="timeline-content">
+          <div class="timeline-time-badge">12:12 PM • SOCIAL ENGAGEMENT</div>
+          <h3 class="timeline-title">Sermon Rhema Card on WhatsApp Status</h3>
+          <p class="timeline-desc">
+            The social manager types the pastor key quote into Church Media Rhema. A stunning 9:16 card is downloaded in five seconds and shared on WhatsApp Status.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-step">
+        <div class="timeline-dot">4</div>
+        <div class="timeline-content">
+          <div class="timeline-time-badge">12:18 PM • AUDIO BROADCAST</div>
+          <h3 class="timeline-title">Complete Sermon Audio on Telegram</h3>
+          <p class="timeline-desc">
+            The sound engineer trims the uncompressed WAV file, applies vocal level normalization, and exports a 24MB 64kbps CBR MP3 ready for the church Telegram channel.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: FREQUENTLY ASKED QUESTIONS -->
+  <section id="faq" class="faq-section">
+    <div class="section-header-center">
+      <div class="section-eyebrow">Clarity & Details</div>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Does this suite require an internet connection on Sunday?</span>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          No. Church Media Suite is built to run entirely offline inside your browser or as a native desktop application. You can process hundreds of photos, format quotes, and compress audio files without any internet connection.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Why are the audio files optimized at 64kbps CBR for Telegram?</span>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          Spoken word sermons contain voice frequencies up to 8kHz. A 64kbps CBR MP3 provides pristine speech intelligibility while reducing a sixty minute sermon from 600MB uncompressed audio down to under 28MB, allowing church members in low bandwidth regions to stream and download without buffering.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>How does the Shared Church Brand Identity work without accounts?</span>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          The suite uses browser local storage. When you enter your church name or speaker name in the Suite Hub, it is stored securely on your local device. Every tool in the suite automatically reads from this shared storage.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Is Church Media Suite free and open source?</span>
+          <span>+</span>
+        </div>
+        <div class="faq-answer">
+          Yes. Church Media Suite is released under the MIT License by Phosters Ministries. It is 100% free for churches, ministries, and volunteers worldwide with zero monthly fees or watermarks.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="index.html">Suite Hub</a>
+      <a href="photo.html">Church Media Photo</a>
+      <a href="quotes.html">Church Media Rhema</a>
+      <a href="audio.html">Church Media Audio</a>
+      <a href="https://github.com/syntaxdrive/church-media-studio" target="_blank">GitHub Repository</a>
+    </div>
+    <div>
+      Church Media Suite &bull; Built by Phosters Ministries &bull; MIT License &bull; 100% Offline
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    (function () {
+      // 1. Mobile Drawer
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const mobileDrawer = document.getElementById('mobileDrawer');
+      const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+      const drawerBackdrop = document.getElementById('drawerBackdrop');
+
+      function openDrawer() {
+        if (mobileDrawer) mobileDrawer.classList.add('open');
+      }
+      function closeDrawer() {
+        if (mobileDrawer) mobileDrawer.classList.remove('open');
+      }
+
+      if (mobileMenuBtn) mobileMenuBtn.onclick = openDrawer;
+      if (closeDrawerBtn) closeDrawerBtn.onclick = closeDrawer;
+      if (drawerBackdrop) drawerBackdrop.onclick = closeDrawer;
+
+      // 2. Interactive Discovery Filter Pills
+      const filterPills = document.querySelectorAll('.filter-pill');
+      const appCards = document.querySelectorAll('.app-card');
+
+      filterPills.forEach(pill => {
+        pill.addEventListener('click', function () {
+          filterPills.forEach(p => p.classList.remove('active'));
+          this.classList.add('active');
+
+          const filter = this.getAttribute('data-filter');
+          appCards.forEach(card => {
+            const cat = card.getAttribute('data-category');
+            if (filter === 'all' || cat === filter) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // 3. FAQ Accordion Toggle
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        const q = item.querySelector('.faq-question');
+        const a = item.querySelector('.faq-answer');
+        q.addEventListener('click', () => {
+          const isOpen = a.style.display !== 'none';
+          faqItems.forEach(other => {
+            const otherA = other.querySelector('.faq-answer');
+            if (otherA) otherA.style.display = 'none';
+          });
+          if (!isOpen) {
+            a.style.display = 'block';
+          }
+        });
+      });
+
+    })();
+  </script>
+
+  <!-- PWA Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('./sw.js').catch(function (e) {});
+      });
+    }
+  </script>
+
+</body>
+</html>

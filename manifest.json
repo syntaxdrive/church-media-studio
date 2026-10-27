@@ -1,0 +1,68 @@
+{
+  "id": "church-media-studio-phosters",
+  "name": "Church Media Studio",
+  "short_name": "Church Media",
+  "description": "Professional offline production suite for church media teams. Built by Phosters Ministries.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#ffffff",
+  "theme_color": "#0f172a",
+  "categories": [
+    "productivity",
+    "utilities",
+    "multimedia",
+    "graphics"
+  ],
+  "icons": [
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Suite Hub",
+      "short_name": "Hub",
+      "description": "Open Church Media Suite Hub",
+      "url": "./index.html",
+      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Church Media Photo",
+      "short_name": "Photo",
+      "description": "Batch watermarking and social sizing for photographers",
+      "url": "./photo.html",
+      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Church Media Rhema",
+      "short_name": "Rhema",
+      "description": "Sermon quote cards for WhatsApp Status and Instagram",
+      "url": "./quotes.html",
+      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Church Media Audio",
+      "short_name": "Audio",
+      "description": "Sermon audio compressor and tagger for sound desks",
+      "url": "./audio.html",
+      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

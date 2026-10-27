@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Background Slate Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141722" />
+      <stop offset="50%" stop-color="#0c0e14" />
+      <stop offset="100%" stop-color="#07080c" />
+    </linearGradient>
+
+    <!-- Metallic Gold Gradient -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFBEB" />
+      <stop offset="20%" stop-color="#FDE68A" />
+      <stop offset="55%" stop-color="#F59E0B" />
+      <stop offset="85%" stop-color="#D97706" />
+      <stop offset="100%" stop-color="#92400E" />
+    </linearGradient>
+
+    <!-- Horizontal Gold Gradient for Beam -->
+    <linearGradient id="goldGradH" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D97706" />
+      <stop offset="25%" stop-color="#FDE68A" />
+      <stop offset="50%" stop-color="#FFFBEB" />
+      <stop offset="75%" stop-color="#FDE68A" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+
+    <!-- Outer Rim Accent Gradient -->
+    <linearGradient id="rimGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.25)" />
+      <stop offset="40%" stop-color="rgba(245, 158, 11, 0.6)" />
+      <stop offset="70%" stop-color="rgba(245, 158, 11, 0.15)" />
+      <stop offset="100%" stop-color="rgba(255, 255, 255, 0.05)" />
+    </linearGradient>
+
+    <!-- Subtle Radial Ambient Glow -->
+    <radialGradient id="ambientGlow" cx="50%" cy="46%" r="55%">
+      <stop offset="0%" stop-color="rgba(245, 158, 11, 0.18)" />
+      <stop offset="50%" stop-color="rgba(245, 158, 11, 0.05)" />
+      <stop offset="100%" stop-color="rgba(0, 0, 0, 0)" />
+    </radialGradient>
+
+    <!-- Drop Shadow for Gold Emblem -->
+    <filter id="emblemShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000000" flood-opacity="0.8" />
+      <feDropShadow dx="0" dy="2" stdDeviation="8" flood-color="#F59E0B" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- Squircle Base Tile -->
+  <rect x="24" y="24" width="464" height="464" rx="112" fill="url(#bgGrad)" stroke="url(#rimGrad)" stroke-width="3" />
+  
+  <!-- Subtle Internal Glow Field -->
+  <rect x="24" y="24" width="464" height="464" rx="112" fill="url(#ambientGlow)" />
+
+  <!-- Core Emblem Group -->
+  <g filter="url(#emblemShadow)">
+
+    <!-- Vertical Beam of the Cross -->
+    <!-- Top arm pointing upward with chiseled diamond peak -->
+    <path d="M 256 94 
+             L 282 136 
+             L 278 206 
+             L 234 206 
+             L 230 136 Z" 
+          fill="url(#goldGrad)" />
+
+    <!-- Center Hub & Aperture Circle Frame -->
+    <circle cx="256" cy="226" r="46" fill="none" stroke="url(#goldGrad)" stroke-width="12" />
+    <circle cx="256" cy="226" r="30" fill="#0d1017" stroke="url(#goldGrad)" stroke-width="3" />
+    
+    <!-- Central Shutter Spark / Play Glyph -->
+    <polygon points="250,212 268,226 250,240" fill="url(#goldGrad)" />
+
+    <!-- Horizontal Beam of the Cross (with cinematic frame crop corners) -->
+    <!-- Left Wing -->
+    <path d="M 124 212 
+             L 210 212 
+             L 210 240 
+             L 124 240 
+             L 124 228 Z" 
+          fill="url(#goldGradH)" />
+    <!-- Left Crop Corner Mark -->
+    <path d="M 112 200 L 112 252 M 112 200 L 140 200 M 112 252 L 140 252" 
+          fill="none" stroke="url(#goldGrad)" stroke-width="6" stroke-linecap="round" />
+
+    <!-- Right Wing -->
+    <path d="M 302 212 
+             L 388 212 
+             L 388 240 
+             L 302 240 
+             L 302 228 Z" 
+          fill="url(#goldGradH)" />
+    <!-- Right Crop Corner Mark -->
+    <path d="M 400 200 L 400 252 M 400 200 L 372 200 M 400 252 L 372 252" 
+          fill="none" stroke="url(#goldGrad)" stroke-width="6" stroke-linecap="round" />
+
+    <!-- Lower Pillar of the Cross: Waveform Sound Spectrum Columns -->
+    <!-- Center Main Stem -->
+    <rect x="245" y="272" width="22" height="136" rx="6" fill="url(#goldGrad)" />
+
+    <!-- Symmetrical Audio Frequency Bars (Left side) -->
+    <rect x="216" y="296" width="16" height="88" rx="4.5" fill="url(#goldGrad)" opacity="0.9" />
+    <rect x="188" y="322" width="14" height="52" rx="4" fill="url(#goldGrad)" opacity="0.75" />
+    <rect x="162" y="342" width="12" height="26" rx="3.5" fill="url(#goldGrad)" opacity="0.55" />
+
+    <!-- Symmetrical Audio Frequency Bars (Right side) -->
+    <rect x="280" y="296" width="16" height="88" rx="4.5" fill="url(#goldGrad)" opacity="0.9" />
+    <rect x="310" y="322" width="14" height="52" rx="4" fill="url(#goldGrad)" opacity="0.75" />
+    <rect x="338" y="342" width="12" height="26" rx="3.5" fill="url(#goldGrad)" opacity="0.55" />
+
+    <!-- Upper Radiant Accent Rays (Subtle Light Beam Fanning Outward) -->
+    <line x1="256" y1="72" x2="256" y2="84" stroke="url(#goldGrad)" stroke-width="5" stroke-linecap="round" />
+    <line x1="210" y1="92" x2="218" y2="102" stroke="url(#goldGrad)" stroke-width="4" stroke-linecap="round" opacity="0.75" />
+    <line x1="302" y1="92" x2="294" y2="102" stroke="url(#goldGrad)" stroke-width="4" stroke-linecap="round" opacity="0.75" />
+  </g>
+</svg>
