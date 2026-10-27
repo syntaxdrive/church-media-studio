@@ -119,6 +119,17 @@ To recompile the native Windows `.exe` wrapper using the included Microsoft .NET
   Launcher.cs
 ```
 
+### Deploying to Netlify
+
+Church Media Suite is 100% static client side code, making it instantly deployable on Netlify with zero server costs:
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/syntaxdrive/church-media-studio)
+
+#### Automated Setup in 3 Steps:
+1. Log in to [Netlify](https://app.netlify.com/).
+2. Click **Add new site** > **Import an existing project** > **GitHub**.
+3. Select `syntaxdrive/church-media-studio`. Netlify will automatically detect `netlify.toml` and deploy the entire suite with continuous deployment on every git push.
+
 ---
 
 ## Upcoming Engines Roadmap (Open for Contribution)

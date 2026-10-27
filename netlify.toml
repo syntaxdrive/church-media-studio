@@ -1,0 +1,53 @@
+# Netlify Deployment Configuration for Church Media Suite
+# Built by Phosters Ministries • 100% Offline Progressive Web App (PWA)
+
+[build]
+  publish = "."
+  command = "node build.js"
+
+# Root URL Rewrite:
+# Directs visitors landing on "/" to the Adobe style landing & download overview.
+# Direct access to "/index.html", "/photo.html", "/quotes.html", "/audio.html" remains untouched.
+[[redirects]]
+  from = "/"
+  to = "/landing.html"
+  status = 200
+
+# Security and Caching Headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Service Worker should never be cached so updates roll out immediately
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+    Content-Type = "application/javascript; charset=utf-8"
+
+# Web App Manifest MIME type
+[[headers]]
+  for = "/manifest.json"
+  [headers.values]
+    Content-Type = "application/manifest+json; charset=utf-8"
+    Cache-Control = "public, max-age=86400"
+
+# Static assets caching
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, immutable"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
